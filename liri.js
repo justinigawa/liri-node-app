@@ -27,7 +27,7 @@ inquirer.prompt([
         //     //     //We will then print the contents of data
         //     //     //console.log(data);
         //     var dataArr = data.split(',');
-        //     var comKey = dataArr[0].slice(76, 101);
+        //     var comKey = dataArr[0].slice(74, 101);
         //     //console.log(comKey);
         //     var comSecret = dataArr[1].slice(22, 72);
         //     //console.log(comSecret);
@@ -41,9 +41,9 @@ inquirer.prompt([
 
         var client = new twitter({
             consumer_key: 'fFA2tspPNNJl9TIPsRVmBYSK7',
-            consumer_secret: 'HA8ZJKqZdgEMqSN1NhpPieCZaHwS0hQw5o6I6fEil62wBzV15C',
-            access_token_key: '2590548643-gimSJwF8enTouzwa9GHzktYEKRD5ZFz2XbV3xfw',
-            access_token_secret: 'rrsvzQ7hqBfEGl0M0ymIniPNAnof6xJIJN1KDHv3lykof',
+            consumer_secret: 'HA8ZJKqZdgEMqSN1NhpPieCZaHwS0hQw5o4I4fEil42wBzV15C',
+            access_token_key: '2590548443-gimSJwF8enTouzwa9GHzktYEKRD5ZFz2XbV3xfw',
+            access_token_secret: 'rrsvzQ7hqBfEGl0M0ymIniPNAnof4xJIJN1KDHv3lykof',
         });
         var count = 20;
         var params = { screen_name: '@IgawaJustin' };
@@ -78,7 +78,7 @@ inquirer.prompt([
 
                         console.log("Artist(s): " + JSON.parse(body).tracks.items[0].artists[0].name);
                         console.log("Song Name: " + JSON.parse(body).tracks.items[0].name);
-                        console.log("Preview Link: " + JSON.parse(body).tracks.href);
+                        console.log("Preview Link: " + JSON.parse(body).tracks.items[0].preview_url);
                         console.log("Album: " + JSON.parse(body).tracks.items[0].album.name);
                     }
                 });
@@ -90,10 +90,10 @@ inquirer.prompt([
 
                     if (!error && response.statusCode == 200) {
 
-                        console.log("Artist(s): " + JSON.parse(body).tracks.items[0].artists[0].name);
-                        console.log("Song Name: " + JSON.parse(body).tracks.items[0].name);
-                        console.log("Preview Link: " + JSON.parse(body).tracks.href);
-                        console.log("Album: " + JSON.parse(body).tracks.items[0].album.name);
+                        console.log("Artist(s): " + JSON.parse(body).tracks.items[4].artists[0].name);
+                        console.log("Song Name: " + JSON.parse(body).tracks.items[4].name);
+                        console.log("Preview Link: " + JSON.parse(body).tracks.items[4].preview_url);
+                        console.log("Album: " + JSON.parse(body).tracks.items[4].album.name);
                     }
                 });
             }
