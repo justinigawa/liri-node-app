@@ -164,25 +164,18 @@ inquirer.prompt([
         // The code will store the contents of the reading inside the variable "data" 
         fs.readFile("random.txt", "utf8", function(error, data) {
             var defaultSong = data.slice(19, 37);
-            console.log(defaultSong);
+            //console.log(defaultSong);
 
-            request('http://www.omdbapi.com/?t=mr+nobody&y=&plot=short&tomatoes=true&r=json', function(error, response, body) {
+            request('https://api.spotify.com/v1/search?q=i+want+it+that+way&type=track', function(error, response, body) {
 
-                if (!error && response.statusCode == 200) {
+                    if (!error && response.statusCode == 200) {
 
-                    console.log("Title: " + JSON.parse(body).Title);
-                    console.log("Year Released: " + JSON.parse(body).Year);
-                    console.log("IMDB's Rating: " + JSON.parse(body).imdbRating);
-                    console.log("Country movie was produced: " + JSON.parse(body).Country);
-                    console.log("Language: " + JSON.parse(body).Language);
-                    console.log("Plot: " + JSON.parse(body).Plot);
-                    console.log("Actors: " + JSON.parse(body).Actors);
-                    console.log("Rotten Tomatoes Rating: " + JSON.parse(body).tomatoRating);
-                    console.log("Rotten Tomatoes url: " + JSON.parse(body).tomatoURL);
-                    console.log("If you haven't watched 'Mr. Nobdy', then you should: http://www.imdb.com/title/tt0485947/");
-                    console.log("It's on Netflix!");
-                }
-            });
+                        console.log("Artist(s): " + JSON.parse(body).tracks.items[0].artists[0].name);
+                        console.log("Song Name: " + JSON.parse(body).tracks.items[0].name);
+                        console.log("Preview Link: " + JSON.parse(body).tracks.items[0].preview_url);
+                        console.log("Album: " + JSON.parse(body).tracks.items[0].album.name);
+                    }
+                });
         });
 
     }
